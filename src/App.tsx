@@ -1,29 +1,33 @@
 import React from "react";
 import addNotification from "react-push-notification";
-import logo from './logo.svg';
-
+import logo from "./logo.svg";
+import "./App.css";
 
 const App = () => {
-  const clickToNotify = () => {
+  const clickToNotify = (str: string) => {
     addNotification({
-      title: 'hello world',
-      subtitle: 'subtitle',
-      theme: 'darkblue',
-      message: 'hello world',
+      title: "hello world",
+      subtitle: "subtitle",
+      theme: "darkblue",
+      message: "hello world " + str,
       duration: 4000,
       icon: logo,
-      native: true
-    })
-  }
+      native: true,
+    });
+  };
   return (
-    <div>
-      <button onClick={clickToNotify} style={{ margin: '100px' }}>
-        Notify
-      </button>
-    </div>
-  )
-}
+    <>
+      <h2 style={{textAlign: "center"}}>Push Notification DEMO</h2>
+      <div className="container">
+        { (Array.from(Array(6).keys())).map(i=> {
+          return <button className="item" onClick={() => clickToNotify(i.toString())}>
+          Notify {i}
+        </button>
+        
+        })}
+      </div>
+    </>
+  );
+};
 
 export default App;
-
-
