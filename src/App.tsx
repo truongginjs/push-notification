@@ -1,26 +1,29 @@
-import React from 'react';
+import React from "react";
+import addNotification from "react-push-notification";
 import logo from './logo.svg';
-import './App.css';
 
-function App() {
+
+const App = () => {
+  const clickToNotify = () => {
+    addNotification({
+      title: 'hello world',
+      subtitle: 'subtitle',
+      theme: 'darkblue',
+      message: 'hello world',
+      duration: 4000,
+      icon: logo,
+      native: true
+    })
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={clickToNotify} style={{ margin: '100px' }}>
+        Notify
+      </button>
     </div>
-  );
+  )
 }
 
 export default App;
+
+
