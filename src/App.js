@@ -11,10 +11,10 @@ const App = () => {
 
     const clickToNotify = (w) => {
         addNotification({
-            title: w.name,
-            subtitle: w.sys.country,
+            title: w?.name ?? "Hello",
+            subtitle: w?.sys?.country ?? "Viet Nam",
             theme: "darkblue",
-            message: `${Math.round(weather.main.temp)} °C`,
+            message: `${Math.round(w?.main?.temp ?? 30)} °C`,
             duration: 4000,
             icon: './images/logo.jpg',
             native: true,
