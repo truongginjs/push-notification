@@ -1,12 +1,12 @@
 version: '3.4'
 
 services:
-  fe:
-    image: fe
+  fe-pwa:
+    image: fe-pwa
     build:
       context: .
       dockerfile: ./Dockerfile
     environment:
       NODE_ENV: production
     ports:
-      - 6969:80
+      - 4953:3000
